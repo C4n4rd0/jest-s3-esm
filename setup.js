@@ -3,9 +3,8 @@ import cwd from "cwd";
 import S3rver from "s3rver";
 import Debug from "debug";
 import { promisify } from "util";
-import { createRequire } from "module";
+import { pathToFileURL } from "url";
 
-const require = createRequire(import.meta.url);
 const debug = Debug("jest-s3:setup");
 
 const defaultOptions = {
@@ -15,7 +14,7 @@ const defaultOptions = {
 };
 
 export default async function () {
-    const config = require(resolve(cwd(), "jest-s3-config.js")),
+    const config = await import(pathToFileURL(resolve(cwd(), "jest-s3-config.js"))),
         s3rverOptions = typeof config === "function" ? await config() : config,
         s3rver = new S3rver(Object.assign(defaultOptions, s3rverOptions)),
         runAsync = promisify(s3rver.run).bind(s3rver);
