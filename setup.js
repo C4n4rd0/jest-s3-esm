@@ -14,7 +14,7 @@ const defaultOptions = {
     directory: ".",
 };
 
-module.exports = async function () {
+export default async function () {
     const config = require(resolve(cwd(), "jest-s3-config.js")),
         s3rverOptions = typeof config === "function" ? await config() : config,
         s3rver = new S3rver(Object.assign(defaultOptions, s3rverOptions)),
