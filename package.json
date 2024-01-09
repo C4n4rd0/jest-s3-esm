@@ -1,0 +1,39 @@
+{
+  "name": "jest-s3-esm",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Jest preset to run a S3rver instance.",
+  "engines": {
+    "node": ">=10.15.3",
+    "npm": ">=6.14.5"
+  },
+  "files": [
+    "jest-preset.js",
+    "setup.js",
+    "teardown.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cjuega/jest-s3.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "s3",
+    "jest",
+    "s3 local",
+    "serverless-offline",
+    "serverless-s3-local",
+    "s3rver",
+    "jest preset",
+    "serverless"
+  ],
+  "author": "C4n4rd0",
+  "license": "MIT",
+  "dependencies": {
+    "cwd": "^0.10.0",
+    "debug": "^4.3.4",
+    "s3rver": "^3.7.1"
+  }
+}
